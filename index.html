@@ -15,7 +15,11 @@ layout: default
 <div class="wrapper">
 <ul class="post-list">
   {% for post in paginator.posts %}
+  {% if post.lang %}
+  <li lang="{{ post.lang }}">
+  {% else %}
   <li>
+  {% endif %}
     <h2>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </h2>

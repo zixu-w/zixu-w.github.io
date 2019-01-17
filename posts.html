@@ -14,7 +14,11 @@ permalink: /posts/
   {% endfor %}
   <ul class="posts-list">
   {% for post in site.categories[cat] %}
+    {% if post.lang %}
+    <li lang="{{ post.lang }}">
+    {% else %}
     <li>
+    {% endif %}
       <strong>
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </strong>
