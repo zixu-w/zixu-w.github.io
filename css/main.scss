@@ -48,6 +48,13 @@ body {
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .highlight {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   #index-flow {
     display: flex;
