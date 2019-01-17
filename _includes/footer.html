@@ -2,7 +2,10 @@
 
   <div class="wrapper">
 
-    <h3 class="footer-heading">{{ site.title }}</h3>
+    <h3 class="footer-heading">
+      {{ site.title }}
+      <span class="footer-desc">&nbsp;{{ site.description }}</span>
+    </h3>
 
     <div class="site-navigation">
 
@@ -43,7 +46,6 @@
 
     <div class="site-signature">
       <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
-      <p class="text">{{ site.description }}</p>
     </div>
 
     <div id="copyright">
