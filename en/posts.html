@@ -25,7 +25,7 @@ lang: en
   {% if post.lang == page.lang %}
     <li class="post-title">
       <strong>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
       </strong>
       <span class="post-date">
         {% if page.lang == 'zh' %}

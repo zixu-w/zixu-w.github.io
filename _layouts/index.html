@@ -33,7 +33,7 @@ layout: default
       {% if post.lang == page.lang %}
       <li>
         <h2 class="post-title">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
             {{ post.title }}
           </a>
         </h2>
@@ -57,12 +57,13 @@ layout: default
             {% endif %}
             {% for cat in post.categories %}
             {% if cat != page.lang %}
-            <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat }}">
-              {% if site.data.i18n['cat_names'][cat][page.lang] %}
-                {{ site.data.i18n['cat_names'][cat][page.lang] | capitalize }}
-              {% else %}
-                {{ site.data.i18n['cat_names'][cat]['default'] | capitalize }}
-              {% endif %}
+            {% if site.data.i18n['cat_names'][cat][page.lang] %}
+              {% assign cat_name = site.data.i18n['cat_names'][cat][page.lang] | capitalize %}
+            {% else %}
+              {% assign cat_name = site.data.i18n['cat_names'][cat]['default'] | capitalize %}
+            {% endif %}
+            <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat }}" title="{{ cat_name }}">
+              {{ cat_name }}
             </a>{% if forloop.last == false %}, {% endif %}
             {% endif %}
             {% endfor %}{% endif %}
