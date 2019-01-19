@@ -1,6 +1,9 @@
 exclude:
   - "/vendor/"
 
+gems:
+  - jemoji
+
 # Site settings
 title: HW311
 subtitle: "&mdash; Where I learn, code, and live."

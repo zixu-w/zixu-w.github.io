@@ -38,7 +38,7 @@ layout: default
           </a>
         </h2>
         <section class="post-excerpt" itemprop="description">
-          <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+          <p>{{ post.content | strip_html | truncate: 120 }}</p>
         </section>
         <section class="post-meta">
           <div class="post-date">
@@ -49,7 +49,7 @@ layout: default
             {% endif %}
           </div>
           <div class="post-categories">
-            {% if post.categories.size > 0 %}
+            {% if post.categories.size > 1 %}
             {% if site.data.i18n['in'][page.lang] %}
             {{ site.data.i18n['in'][page.lang] }}&nbsp;
             {% else %}

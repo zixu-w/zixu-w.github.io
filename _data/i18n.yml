@@ -68,17 +68,10 @@ sitemap:
   zh: 站点地图
 
 cat_names:
-  Dummy1:
-    default: Dummy1
-    en: Dummy1
-    zh: 测试类别1
+  Misc:
+    default: Misc
+    en: Misc
+    zh: 杂文
 
-  Dummy2:
-    default: Dummy2
-    en: Dummy2
-    zh: 测试类别2
-
-  Dummy3:
-    default: Dummy3
-    en: Dummy3
-    zh: 测试类别3
+  Jekyll:
+    default: Jekyll
