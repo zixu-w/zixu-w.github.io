@@ -21,7 +21,7 @@ logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
-highlightjs_theme: "ocean"
+highlightjs_theme: "atom-one-dark"
 
 permalink: pretty
 
