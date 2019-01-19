@@ -12,9 +12,19 @@
     {% endif %}
   </span>
   <hr>
-  <a target="_blank" class="sidebar-content" href="https://jizhuoran.gitbook.io/">
-    Zhuoran's GitBook
-  </a>
+  <ul id="readings-list">
+    {% for reading in site.data.readings %}
+    <li>
+      <a target="_blank" class="sidebar-content" href="{{ reading['url'] }}">
+        {% if reading['title'][page.lang] %}
+          {{ reading['title'][page.lang] }}
+        {% else %}
+          {{ reading['title']['default'] }}
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
 
 <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>

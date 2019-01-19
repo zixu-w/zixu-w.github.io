@@ -152,6 +152,20 @@ tt, code, kbd, samp {
   }
 }
 
+#readings-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  a {
+    text-decoration: none !important;
+  }
+
+  li {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
 #top {
   display: none;
   position: sticky;
