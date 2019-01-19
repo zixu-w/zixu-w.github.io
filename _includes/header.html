@@ -1,6 +1,6 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="{{ site.baseurl }}/" class="logo">
+    <a href="{{ site.baseurl }}/{{ page.lang }}" class="logo">
       {% if site.logo %}
       <img src="{{ site.logo | prepend: site.baseurl }}" alt="{{ site.title }}">
       {% else %}
@@ -12,11 +12,21 @@
     </a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        {% for page in site.pages %}
-          {% if page.title and page.main_nav != false %}
-          <li class="nav-link"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        <li class="nav-link"><a href="/{{ page.lang }}/about">
+          {% if site.data.i18n['about'][page.lang] %}
+            {{ site.data.i18n['about'][page.lang] }}
+          {% else %}
+            {{ site.data.i18n['about']['default'] }}
           {% endif %}
-        {% endfor %}
+        </a></li>
+        <li class="nav-link"><a href="/{{ page.lang }}/posts">
+          {% if site.data.i18n['posts'][page.lang] %}
+            {{ site.data.i18n['posts'][page.lang] }}
+          {% else %}
+            {{ site.data.i18n['posts']['default'] }}
+          {% endif %}
+        </a></li>
+        <li class="nav-link"><a class="rm-pad-right" href="{{ page.url | replace:'zh','en' }}">En</a>&vert;<a href="{{ page.url | replace:'en','zh' }}">中</a></li>
       </ul>
     </nav>
   </div>

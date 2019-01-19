@@ -1,11 +1,7 @@
 ---
 layout: default
 ---
-{% if page.lang %}
-<div class="post" lang="{{ page.lang }}">
-{% else %}
 <div class="post">
-{% endif %}
 
 <div class="post-header-container {% if page.cover %}has-cover{% endif %}" {% if page.cover %}style="background-image: url({{ page.cover | prepend: site.baseurl }});"{% endif %}>
   <div class="scrim {% if page.cover %}has-cover{% endif %}">
@@ -21,14 +17,30 @@ layout: default
 {% unless page.cover %} {% include page_divider.html %} {% endunless %}
 
 <section class="post-meta">
-  <div class="post-date">{{ page.date | date: "%H:%M&nbsp;&nbsp;%B %-d, %Y" }}</div>
-  <div class="post-categories">
-  {% if page.categories.size > 0 %}in {% for cat in page.categories %}
-    {% if site.jekyll-archives %}
-    <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+  <div class="post-date">
+    {% if page.lang == 'zh' %}
+      {{ page.date | date: "%Y年%-m月%-d日&nbsp;&nbsp;%H:%M" }}
     {% else %}
-    <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
+      {{ page.date | date: "%H:%M&nbsp;&nbsp;%B %-d, %Y" }}
     {% endif %}
+  </div>
+  <div class="post-categories">
+  {% if page.categories.size > 0 %}
+  {% if site.data.i18n['in'][page.lang] %}
+  {{ site.data.i18n['in'][page.lang] }}&nbsp;
+  {% else %}
+  {{ site.data.i18n['in']['default'] }}&nbsp;
+  {% endif %}
+  {% for cat in page.categories %}
+  {% if cat != page.lang %}
+    <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat }}">
+      {% if site.data.i18n['cat_names'][cat][page.lang] %}
+        {{ site.data.i18n['cat_names'][cat][page.lang] | capitalize }}
+      {% else %}
+        {{ site.data.i18n['cat_names'][cat]['default'] | capitalize }}
+      {% endif %}
+    </a>{% if forloop.last == false %}, {% endif %}
+  {% endif %}
   {% endfor %}{% endif %}
   </div>
 </section>
@@ -37,20 +49,14 @@ layout: default
   {{ content }}
 </article>
 
-{% if site.jekyll-archives %}
-{% if page.tags.size > 0 %}
-<section class="tags">
-  <strong>Tags:</strong> {% for tag in page.tags %}<a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a>{% if forloop.last == false %},&nbsp;{% endif %}{% endfor %}
-</section>
-{% endif %}
-{% endif %}
-
-<section class="rss">
-  <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
-</section>
-
 <section class="share">
-  <span>Share: </span>
+  <span>
+    {% if site.data.i18n['share'][page.lang] %}
+      {{ site.data.i18n['share'][page.lang] }}
+    {% else %}
+      {{ site.data.i18n['share']['default'] }}
+    {% endif %}
+  </span>
   {% for social in site.social %}
     {% capture full_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
     {% if social.name == "Twitter" and social.share == true %}
@@ -98,26 +104,44 @@ layout: default
 {% if site.inter_post_navigation == true %}
 	<section class="post-navigation">
 		<span class="prev-post">
-			{% if page.previous.url %}
-				<a href="{{page.previous.url | prepend: site.baseurl}}">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-					</span>
-					<span class="page-number">{{page.previous.title}}</span>
-				</a>
-			{% endif %}
+      {% for post in site.posts %}
+        {% if post.lang == page.lang %}
+          {% if prev %}
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="page-number">{{ post.title }}</span>
+            </a>
+            {% break %}
+          {% endif %}
+          {% assign prev = false %}
+          {% if post.id == page.id %}
+            {% assign prev = true %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
 		</span>
 		<span class="next-post">
-			{% if page.next.url %}
-				<a href="{{page.next.url | prepend: site.baseurl}}">
-					<span class="page-number">{{page.next.title}}</span>
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			{% endif %}
+      {% for post in site.posts reversed %}
+        {% if post.lang == page.lang %}
+          {% if next %}
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              <span class="page-number">{{ post.title }}</span>
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            {% break %}
+          {% endif %}
+          {% assign next = false %}
+          {% if post.id == page.id %}
+            {% assign next = true %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
 		</span>
 	</section>
 {% endif %}
@@ -128,6 +152,9 @@ layout: default
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname = '{{ site.disqus_shortname }}';
+    var disqus_config = function () {
+      this.language = "{{ page.lang }}";
+    };
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -136,8 +163,20 @@ layout: default
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <noscript>
+    {% if site.data.i18n['disqus_noscript'][page.lang] %}
+    {{ site.data.i18n['disqus_noscript'][page.lang] }}
+    {% else %}
+    {{ site.data.i18n['disqus_noscript']['default'] }}
+    {% endif %}
+  </noscript>
+  <a href="http://disqus.com" class="dsq-brlink">
+    {% if site.data.i18n['disqus_power'][page.lang] %}
+    {{ site.data.i18n['disqus_power'][page.lang] }}
+    {% else %}
+    {{ site.data.i18n['disqus_power']['default'] }}
+    {% endif %}
+  </a>
 </section>
 {% endunless %}
 {% endif %}

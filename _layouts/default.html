@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang }}">
 
   {% include head.html %}
 
@@ -8,11 +8,34 @@
     {% include header.html %}
 
     <div class="page-content">
-        {{ content }}
+      {{ content }}
+      <a href="javascript:void(0);" id="top">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-up fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
     </div>
 
     {% include footer.html %}
 
   </body>
+  <script type="text/javascript">
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("top").style.display = "block";
+      } else {
+        document.getElementById("top").style.display = "none";
+      }
+    }
+
+    $('#top').click(function(){
+    $('html, body').animate({
+      scrollTop: 0
+    }, 200);
+});
+  </script>
 
 </html>

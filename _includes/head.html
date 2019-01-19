@@ -3,8 +3,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <title>
+    {% if page.title %}
+      {{ page.title }}
+    {% else %}
+      {% if site.data.i18n['title'][page.lang] %}
+        {{ site.data.i18n['title'][page.lang] }}
+      {% else %}
+        {{ site.data.i18n['title']['default'] }}
+      {% endif %}
+    {% endif %}
+  </title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}
+  {% if site.data.i18n['description'][page.lang] %}
+    {{ site.data.i18n['description'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['description']['default'] }}
+  {% endif %}{% endif %}">
   {% if site.name %}
   <meta name="author" content="{{ site.name }}">
   <meta name="copyright" content="&copy; {{ site.name }} {{ site.time | date: '%Y' }}">
@@ -38,10 +53,22 @@
 
   {% if site.protocols.fb_image %}
   <!-- Facebook OGP cards -->
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{% if site.data.i18n['description'][page.lang] %}
+    {{ site.data.i18n['description'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['description']['default'] }}
+  {% endif %}{% endif %}" />
   <meta property="og:url" content="{{ site.url }}" />
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="og:site_name" content="{% if site.data.i18n['title'][page.lang] %}
+    {{ site.data.i18n['title'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['title']['default'] }}
+  {% endif %}" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{% if site.data.i18n['title'][page.lang] %}
+    {{ site.data.i18n['title'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['title']['default'] }}
+  {% endif %}{% endif %}" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="{% if page.cover %}{{ page.cover | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.protocols.fb_image | prepend: site.baseurl | prepend: site.url }}{% endif %}" />
   <meta property="og:image:type" content="{{ site.protocols.fb_image_type }}" />
@@ -52,8 +79,16 @@
   {% if site.protocols.twitter_image %}
   <!-- Twitter: card tags -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{% if site.data.i18n['title'][page.lang] %}
+    {{ site.data.i18n['title'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['title']['default'] }}
+  {% endif %}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{% if site.data.i18n['description'][page.lang] %}
+    {{ site.data.i18n['description'][page.lang] }}
+  {% else %}
+    {{ site.data.i18n['description']['default'] }}
+  {% endif %}{% endif %}">
   <meta name="twitter:image" content="{% if page.cover %}{{ page.cover | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.protocols.twitter_image | prepend: site.baseurl | prepend: site.url }}{% endif %}">
   <meta name="twitter:url" content="{{ site.url }}">
   {% endif %}
@@ -69,5 +104,4 @@
   <!-- Site styles -->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>

@@ -2,7 +2,6 @@
 # See http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html for making `jekyll archives` work.
 gems:
   - jekyll-sitemap
-  - jekyll-paginate
 
 exclude:
   - "/vendor/"
@@ -24,34 +23,17 @@ logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
-paginate: 5
-paginate_path: "/page:num/"
-inter_post_navigation: true
 highlightjs_theme: "ocean"
 
-# Archive settings (see https://github.com/jekyll/jekyll-archives/)
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layout: 'archive'
-#   permalinks:
-#     category: '/category/:name/'
-#     tag: '/tag/:name/'
+permalink: pretty
+
+inter_post_navigation: true
 
 # Disqus comments
 disqus_shortname: hw311
 
 # Google analytics
 ga_tracking_id: "UA-61139519-1"
-
-# Category descriptions (for archive pages)
-descriptions:
-  - cat: jekyll
-    desc: "Posts describing Jekyll setup techniques."
-
-  - cat: dummy
-    desc: "Just some placeholder posts, lorem ipsum and the rest."
 
 # Social icons and sharing options
 #

@@ -3,25 +3,54 @@
   <div class="wrapper">
 
     <h3 class="footer-heading">
-      {{ site.title }}
-      <span class="footer-desc">&nbsp;{{ site.description }}</span>
+      {% if site.data.i18n['title'][page.lang] %}
+        {{ site.data.i18n['title'][page.lang] }}
+      {% else %}
+        {{ site.data.i18n['title']['default'] }}
+      {% endif %}
+      <span class="footer-desc">&nbsp;
+        {% if site.data.i18n['description'][page.lang] %}
+          {{ site.data.i18n['description'][page.lang] }}
+        {% else %}
+          {{ site.data.i18n['description']['default'] }}
+        {% endif %}
+      </span>
     </h3>
 
     <div class="site-navigation">
-
-      <p><strong>Site Map</strong></p>
-      <ul class="pages">
-        {% for page in site.pages %}
-        {% if page.title and page.main_nav != false %}
-          <li class="nav-link"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      <p><strong>
+        {% if site.data.i18n['sitemap'][page.lang] %}
+          {{ site.data.i18n['sitemap'][page.lang] }}
+        {% else %}
+          {{ site.data.i18n['sitemap']['default'] }}
         {% endif %}
-        {% endfor %}
+      </strong></p>
+      <ul class="pages">
+        <li class="nav-link"><a href="/{{ page.lang }}/about">
+          {% if site.data.i18n['about'][page.lang] %}
+            {{ site.data.i18n['about'][page.lang] }}
+          {% else %}
+            {{ site.data.i18n['about']['default'] }}
+          {% endif %}
+        </a></li>
+        <li class="nav-link"><a href="/{{ page.lang }}/about">
+          {% if site.data.i18n['posts'][page.lang] %}
+            {{ site.data.i18n['posts'][page.lang] }}
+          {% else %}
+            {{ site.data.i18n['posts']['default'] }}
+          {% endif %}
+        </a></li>
       </ul>
     </div>
 
     <div class="site-contact">
-
-      <p><strong>Contact</strong></p>
+      <p><strong>
+        {% if site.data.i18n['contact'][page.lang] %}
+          {{ site.data.i18n['contact'][page.lang] }}
+        {% else %}
+          {{ site.data.i18n['contact']['default'] }}
+        {% endif %}
+      </strong></p>
       <ul class="social-media-list">
         <li>
           <a href="mailto:{{ site.email }}">
@@ -45,10 +74,23 @@
     </div>
 
     <div class="site-signature">
-      <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
+      <p><strong>
+        {% if site.data.i18n['language'][page.lang] %}
+          {{ site.data.i18n['language'][page.lang] }}
+        {% else %}
+          {{ site.data.i18n['language']['default'] }}
+        {% endif %}
+      </strong></p>
+      <ul>
+        <li class="nav-link"><a class="rm-pad-right" href="{{ page.url | replace:'zh','en' }}">En</a>&vert;<a href="{{ page.url | replace:'en','zh' }}">中</a></li>
+      </ul>
     </div>
 
-    <div id="copyright">
+    <div class="footnote">
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> on <a href="https://pages.github.com/">GitHub Pages</a>.
+      &nbsp;&vert;&nbsp;
+      Template modified from <a href="https://github.com/bencentra/centrarium">Centrarium</a>.
+      &nbsp;&vert;&nbsp;
       &copy; {{ site.time | date: '%Y' }} {{ site.name }}. All rights reserved.
     </div>
 
