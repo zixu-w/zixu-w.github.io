@@ -26,14 +26,14 @@
         {% endif %}
       </strong></p>
       <ul class="pages">
-        <li class="nav-link"><a href="/{{ page.lang }}/about">
+        <li class="nav-link"><a href="/{{ page.lang }}/about/">
           {% if site.data.i18n['about'][page.lang] %}
             {{ site.data.i18n['about'][page.lang] }}
           {% else %}
             {{ site.data.i18n['about']['default'] }}
           {% endif %}
         </a></li>
-        <li class="nav-link"><a href="/{{ page.lang }}/posts">
+        <li class="nav-link"><a href="/{{ page.lang }}/posts/">
           {% if site.data.i18n['posts'][page.lang] %}
             {{ site.data.i18n['posts'][page.lang] }}
           {% else %}
