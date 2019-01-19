@@ -1,7 +1,29 @@
 <div class="sidebar">
-  <span class="sidebar-section">Useful sites</span>
+  <span class="sidebar-section">
+    <input type="text" id="search-input" placeholder="{% if site.data.i18n['search'][page.lang] %}{{ site.data.i18n['search'][page.lang] }}{% else %}{{ site.data.i18n['search']['default'] }}{% endif %}">
+    <ul id="results-container"></ul>
+  </span>
+  <hr>
+  <span class="sidebar-section">
+    {% if site.data.i18n['reading'][page.lang] %}
+      {{ site.data.i18n['reading'][page.lang] }}
+    {% else %}
+      {{ site.data.i18n['reading']['default'] }}
+    {% endif %}
+  </span>
   <hr>
   <a target="_blank" class="sidebar-content" href="https://jizhuoran.gitbook.io/">
     Zhuoran's GitBook
   </a>
 </div>
+
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script type="text/javascript">
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    searchResultTemplate: '<li class="nav-link"><a href="{url}">{title}</a></li>',
+    json: '/{{ page.lang }}/search.json',
+    noResultsText: "{% if site.data.i18n['no_result'][page.lang] %}{{ site.data.i18n['no_result'][page.lang] }}{% else %}{{ site.data.i18n['no_result']['default'] }}{% endif %}"
+  })
+</script>

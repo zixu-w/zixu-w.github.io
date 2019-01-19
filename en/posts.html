@@ -1,0 +1,44 @@
+---
+layout: page
+title: "Posts"
+permalink: /en/posts/
+lang: en
+---
+
+{% for category in site.categories %}
+  {% capture cat %}{{ category | first }}{% endcapture %}
+  {% unless cat == 'en' or cat == 'zh' %}
+  <h2 id="{{cat}}">
+    {% if site.data.i18n['cat_names'][cat][page.lang] %}
+      {{ site.data.i18n['cat_names'][cat][page.lang] | capitalize }}
+    {% else %}
+      {{ site.data.i18n['cat_names'][cat]['default'] | capitalize }}
+    {% endif %}
+  </h2>
+  {% for desc in site.descriptions %}
+    {% if desc.cat == cat %}
+      <p class="desc"><em>{{ desc.desc }}</em></p>
+    {% endif %}
+  {% endfor %}
+  <ul class="posts-list">
+  {% for post in site.categories[cat] %}
+  {% if post.lang == page.lang %}
+    <li class="post-title">
+      <strong>
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </strong>
+      <span class="post-date">
+        {% if page.lang == 'zh' %}
+          - {{ post.date | date: "%Y年%-m月%-d日" }}
+        {% else %}
+          - {{ post.date | date: "%B %-d, %Y" }}
+        {% endif %}
+      </span>
+    </li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+  {% if forloop.last == false %}<hr>{% endif %}
+  {% endunless %}
+{% endfor %}
+<br>
