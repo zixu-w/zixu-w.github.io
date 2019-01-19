@@ -5,7 +5,7 @@ layout: null
   {% for post in site.posts %}
   {% if post.lang == 'zh' %}
     {
-      "title"      : "{{ post.title | escape }}",
+      "title"      : {{ post.title | jsonify }},
       "categories" : "{{ post.categories }}",
       "tags"       : "{{ post.tags }}",
       "url"        : "{{ site.baseurl }}{{ post.url }}",
