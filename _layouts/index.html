@@ -30,8 +30,8 @@ ref: index
 <div class="wrapper" id="index-flow">
   <div class="post-flow">
     <ul class="post-list">
-      {% for post in site.posts %}
-      {% if post.lang == page.lang %}
+      {% assign posts = site.posts | where:"lang", page.lang %}
+      {% for post in posts %}
       <li>
         <h2 class="post-title">
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
@@ -56,24 +56,22 @@ ref: index
             {% else %}
             {{ site.data.i18n['in']['default'] }}&nbsp;
             {% endif %}
-            {% for cat in post.categories %}
-            {% if cat != page.lang %}
-            {% if site.data.i18n['cat_names'][cat][page.lang] %}
-              {% assign cat_name = site.data.i18n['cat_names'][cat][page.lang] | capitalize %}
+            {% assign categories = site.data.categories | where_exp:"cat", "post.categories contains cat.ref" %}
+            {% for cat in categories %}
+            {% if cat.name[page.lang] %}
+              {% assign cat_name = cat.name[page.lang] | capitalize %}
             {% else %}
-              {% assign cat_name = site.data.i18n['cat_names'][cat]['default'] | capitalize %}
+              {% assign cat_name = cat.name['default'] | capitalize %}
             {% endif %}
-            <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat }}" title="{{ cat_name }}">
+            <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat.ref }}" title="{{ cat_name }}">
               {{ cat_name }}
             </a>{% if forloop.last == false %}, {% endif %}
-            {% endif %}
             {% endfor %}{% endif %}
           </div>
         </section>
       </li>
       {% if forloop.last == false %}
       <hr>
-      {% endif %}
       {% endif %}
       {% endfor %}
     </ul>

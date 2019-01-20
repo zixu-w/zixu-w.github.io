@@ -66,12 +66,3 @@ sitemap:
   default: 'Site Map'
   en: 'Site Map'
   zh: 站点地图
-
-cat_names:
-  Misc:
-    default: Misc
-    en: Misc
-    zh: 杂文
-
-  Jekyll:
-    default: Jekyll

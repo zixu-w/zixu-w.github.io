@@ -5,25 +5,19 @@ permalink: /zh/posts/
 lang: zh
 ---
 
-{% for category in site.categories %}
-  {% capture cat %}{{ category | first }}{% endcapture %}
-  {% unless cat == 'en' or cat == 'zh' %}
-  <h2 id="{{cat}}">
-    {% if site.data.i18n['cat_names'][cat][page.lang] %}
-      {{ site.data.i18n['cat_names'][cat][page.lang] | capitalize }}
+{% assign categories = site.data.categories | where_exp:"cat", "site.categories[cat.ref].size > 0" %}
+{% for cat in categories %}
+  <h2 id="{{ cat.ref }}">
+    {% if cat.name[page.lang] %}
+      {{ cat.name[page.lang] | capitalize }}
     {% else %}
-      {{ site.data.i18n['cat_names'][cat]['default'] | capitalize }}
+      {{ cat.name['default'] | capitalize }}
     {% endif %}
   </h2>
-  {% for desc in site.descriptions %}
-    {% if desc.cat == cat %}
-      <p class="desc"><em>{{ desc.desc }}</em></p>
-    {% endif %}
-  {% endfor %}
   <ul class="posts-list">
-  {% for post in site.categories[cat] %}
+  {% for post in site.categories[cat.ref] %}
   {% if post.lang == page.lang %}
-    <li>
+    <li class="post-title">
       <strong>
         <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
       </strong>
@@ -39,6 +33,5 @@ lang: zh
   {% endfor %}
   </ul>
   {% if forloop.last == false %}<hr>{% endif %}
-  {% endunless %}
 {% endfor %}
 <br>

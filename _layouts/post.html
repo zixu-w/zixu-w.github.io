@@ -31,17 +31,16 @@ layout: default
   {% else %}
   {{ site.data.i18n['in']['default'] }}&nbsp;
   {% endif %}
-  {% for cat in page.categories %}
-  {% if cat != page.lang %}
-    {% if site.data.i18n['cat_names'][cat][page.lang] %}
-      {% assign cat_name = site.data.i18n['cat_names'][cat][page.lang] | capitalize %}
-    {% else %}
-      {% assign cat_name = site.data.i18n['cat_names'][cat]['default'] | capitalize %}
-    {% endif %}
-    <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat }}" title="{{ cat_name }}">
-      {{ cat_name }}
-    </a>{% if forloop.last == false %}, {% endif %}
+  {% assign categories = site.data.categories | where_exp:"cat", "page.categories contains cat.ref" %}
+  {% for cat in categories %}
+  {% if cat.name[page.lang] %}
+    {% assign cat_name = cat.name[page.lang] | capitalize %}
+  {% else %}
+    {% assign cat_name = cat.name['default'] | capitalize %}
   {% endif %}
+  <a href="{{ site.baseurl }}/{{ page.lang }}/posts/#{{ cat.ref }}" title="{{ cat_name }}">
+    {{ cat_name }}
+  </a>{% if forloop.last == false %}, {% endif %}
   {% endfor %}{% endif %}
   </div>
 </section>
