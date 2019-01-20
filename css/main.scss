@@ -33,6 +33,10 @@ body {
   flex-direction: column;
 }
 
+.wrapper {
+  max-width: 70em !important;
+}
+
 .page-content {
   flex: 1 0 auto;
 }
@@ -68,14 +72,20 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+.post-meta {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 95% !important;
+}
+
+@media screen and (max-width: 1000px) {
   .highlight {
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   #index-flow {
     display: flex;
     flex-direction: row;
@@ -176,7 +186,7 @@ tt, code, kbd, samp {
   z-index: 99;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   #top {
     display: none !important;
   }
@@ -185,4 +195,53 @@ tt, code, kbd, samp {
 .emoji {
   display: inline !important;
   width: auto !important;
+}
+
+.share {
+  margin-bottom: 2em !important;
+}
+
+.post-nav-span {
+  margin-top: auto !important;
+  margin-bottom: 2em !important;
+}
+
+.post-nav-arrow {
+  color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+  .post-navigation {
+    display: grid !important;
+    width: 100% !important;
+  }
+
+  .post-nav-arrow {
+    color: unset !important;
+  }
+
+  .post-nav-box {
+    display: none !important;
+  }
+
+  .post-nav-span {
+    width: 100% !important;
+  }
+
+  .post-nav-button {
+    width: 100% !important;
+    text-align: center !important;
+    border-width: 1px !important;
+    border-radius: 3px !important;
+    border-color: rgb(230, 236, 241) !important;
+    border-style: solid !important;
+    background-color: white !important;
+    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px !important;
+    float: none !important;
+    padding: 1em !important;
+  }
+
+  .post-nav-button:hover {
+    box-shadow: rgba(116, 129, 141, 0.4) 0px 3px 8px 0px !important;
+  }
 }

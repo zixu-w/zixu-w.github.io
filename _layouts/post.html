@@ -104,16 +104,18 @@ layout: default
 </section>
 {% if site.inter_post_navigation == true %}
 	<section class="post-navigation">
-		<span class="prev-post">
+		<span class="post-nav-span prev-post">
       {% for post in site.posts %}
         {% if post.lang == page.lang %}
           {% if prev %}
             <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-square fa-stack-2x"></i>
-                <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-              </span>
-              <span class="page-number">{{ post.title }}</span>
+              <div class="post-nav-button">
+                <span class="fa-stack fa-lg">
+                  <i class="post-nav-box fa fa-square fa-stack-2x"></i>
+                  <i class="post-nav-arrow fa fa-angle-double-left fa-stack-1x"></i>
+                </span>
+                <span class="page-number">{{ post.title }}</span>
+              </div>
             </a>
             {% break %}
           {% endif %}
@@ -124,16 +126,18 @@ layout: default
         {% endif %}
       {% endfor %}
 		</span>
-		<span class="next-post">
+		<span class="post-nav-span next-post">
       {% for post in site.posts reversed %}
         {% if post.lang == page.lang %}
           {% if next %}
             <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
-              <span class="page-number">{{ post.title }}</span>
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-square fa-stack-2x"></i>
-                <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-              </span>
+              <div class="post-nav-button">
+                <span class="page-number">{{ post.title }}</span>
+                <span class="fa-stack fa-lg">
+                  <i class="post-nav-box fa fa-square fa-stack-2x"></i>
+                  <i class="post-nav-arrow fa fa-angle-double-right fa-stack-1x"></i>
+                </span>
+              </div>
             </a>
             {% break %}
           {% endif %}
