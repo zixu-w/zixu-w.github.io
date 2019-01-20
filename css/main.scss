@@ -201,8 +201,40 @@ tt, code, kbd, samp {
   margin-bottom: 2em !important;
 }
 
-.post-nav-arrow {
-  color: white !important;
+.next-post {
+  padding-left: 1em;
+}
+
+.prev-post {
+  padding-right: 1em;
+}
+
+.post-nav-button {
+  width: 100% !important;
+  text-align: center !important;
+  border-width: 1px !important;
+  border-radius: 3px !important;
+  border-color: rgb(206, 218, 227) !important;
+  border-style: solid !important;
+  background-color: white !important;
+  box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px !important;
+  padding: 1em !important;
+
+  .fa-angle-double-right {
+    margin-left: 10px;
+  }
+
+  .fa-angle-double-left {
+    margin-right: 10px;
+  }
+}
+
+.post-nav-button:hover {
+  box-shadow: rgba(116, 129, 141, 0.4) 0px 3px 8px 0px !important;
+}
+
+.post-nav-span a:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -211,34 +243,18 @@ tt, code, kbd, samp {
     width: 100% !important;
   }
 
-  .post-nav-arrow {
-    color: unset !important;
-  }
-
-  .post-nav-box {
-    display: none !important;
-  }
-
   .post-nav-span {
     width: 100% !important;
   }
 
-  .post-nav-button {
-    width: 100% !important;
-    text-align: center !important;
-    border-width: 1px !important;
-    border-radius: 3px !important;
-    border-color: rgb(230, 236, 241) !important;
-    border-style: solid !important;
-    background-color: white !important;
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px !important;
-    float: none !important;
-    padding: 1em !important;
+  .next-post {
+    padding-left: 0;
   }
 
-  .post-nav-button:hover {
-    box-shadow: rgba(116, 129, 141, 0.4) 0px 3px 8px 0px !important;
+  .prev-post {
+    padding-right: 0;
   }
+
 }
 
 .content-guard {
