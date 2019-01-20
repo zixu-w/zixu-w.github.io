@@ -137,8 +137,12 @@ tt, code, kbd, samp {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  a {
-    text-decoration: none !important;
+  a:link {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }
 
@@ -147,9 +151,6 @@ tt, code, kbd, samp {
   margin-left: 1em;
   font-size: medium;
   padding: 0;
-  a {
-    text-decoration: none !important;
-  }
 
   li {
     text-overflow: ellipsis;
@@ -161,9 +162,6 @@ tt, code, kbd, samp {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  a {
-    text-decoration: none !important;
-  }
 
   li {
     text-overflow: ellipsis;
