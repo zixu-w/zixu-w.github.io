@@ -74,11 +74,9 @@ body {
   max-width: 95% !important;
 }
 
-@media screen and (max-width: 1000px) {
-  .highlight {
-    margin-left: 0;
-    margin-right: 0;
-  }
+.highlight {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media screen and (min-width: 1000px) {
@@ -275,4 +273,9 @@ a.footnote:before {
 
 a.footnote:after {
   content: "]";
+}
+
+img.img-as-is {
+  width: auto;
+  height: auto;
 }
