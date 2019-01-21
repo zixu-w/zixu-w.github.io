@@ -14,6 +14,14 @@
       {% endif %}
     {% endif %}
   </title>
+  <meta name="title" content="{% if page.title %}{{ page.title }}
+  {% else %}
+    {% if site.data.i18n['title'][page.lang] %}
+      {{ site.data.i18n['title'][page.lang] }}
+    {% else %}
+      {{ site.data.i18n['title']['default'] }}
+    {% endif %}
+  {% endif %}">
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}
   {% if site.data.i18n['description'][page.lang] %}
     {{ site.data.i18n['description'][page.lang] }}
