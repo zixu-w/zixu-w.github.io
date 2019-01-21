@@ -1,37 +1,6 @@
 ---
-layout: page
+layout: posts
 title: "Posts"
 permalink: /en/posts/
 lang: en
 ---
-
-{% assign categories = site.data.categories | where_exp:"cat", "site.categories[cat.ref].size > 0" %}
-{% for cat in categories %}
-  <h2 id="{{ cat.ref }}">
-    {% if cat.name[page.lang] %}
-      {{ cat.name[page.lang] | capitalize }}
-    {% else %}
-      {{ cat.name['default'] | capitalize }}
-    {% endif %}
-  </h2>
-  <ul class="posts-list">
-  {% for post in site.categories[cat.ref] %}
-  {% if post.lang == page.lang %}
-    <li class="post-title">
-      <strong>
-        <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
-      </strong>
-      <span class="post-date">
-        {% if page.lang == 'zh' %}
-          - {{ post.date | date: "%Y年%-m月%-d日" }}
-        {% else %}
-          - {{ post.date | date: "%B %-d, %Y" }}
-        {% endif %}
-      </span>
-    </li>
-  {% endif %}
-  {% endfor %}
-  </ul>
-  {% if forloop.last == false %}<hr>{% endif %}
-{% endfor %}
-<br>
