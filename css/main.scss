@@ -259,3 +259,13 @@ tt, code, kbd, samp {
   margin-top: 0;
   margin-bottom: 1em;
 }
+
+blockquote {
+  color: adjust-color($action-color, $lightness: +10%);
+  border-left: 3px solid adjust-color($action-color, $lightness: +40%);
+  padding-left: 1em;
+
+  p {
+    padding-bottom: 10px;
+  }
+}
