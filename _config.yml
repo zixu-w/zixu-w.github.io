@@ -23,6 +23,10 @@ logo: "/assets/logo.png"
 markdown: kramdown
 highlightjs_theme: "atom-one-dark"
 
+kramdown:
+  footnote_backlink: ^
+  math_engine: mathjax
+
 permalink: pretty
 
 inter_post_navigation: true

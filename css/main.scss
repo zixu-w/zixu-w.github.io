@@ -269,3 +269,11 @@ blockquote {
     padding-bottom: 10px;
   }
 }
+
+a.footnote:before {
+  content: "[";
+}
+
+a.footnote:after {
+  content: "]";
+}
