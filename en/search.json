@@ -6,8 +6,8 @@ layout: null
   {% if post.lang == 'en' %}
     {
       "title"      : {{ post.title | jsonify }},
-      "categories" : "{{ post.categories }}",
-      "tags"       : "{{ post.tags }}",
+      "categories" : "{{ post.categories | join: " " }}",
+      "tags"       : "{{ post.tags | join: " " }}",
       "url"        : "{{ site.baseurl }}{{ post.url }}",
       "date"       : "{{ post.date }}",
       "lang"       : "{{ post.lang }}",

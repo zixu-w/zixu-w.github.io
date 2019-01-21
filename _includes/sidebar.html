@@ -1,7 +1,7 @@
 <div class="sidebar">
   <span class="sidebar-section">
     <input type="text" id="search-input" placeholder="{% if site.data.i18n['search'][page.lang] %}{{ site.data.i18n['search'][page.lang] }}{% else %}{{ site.data.i18n['search']['default'] }}{% endif %}">
-    <ul id="results-container"></ul>
+    <ul id="results-container" class="sidebar-content"></ul>
   </span>
   <hr>
   <span class="sidebar-section">
@@ -35,10 +35,7 @@
     json: '/{{ page.lang }}/search.json',
     noResultsText: "{% if site.data.i18n['no_result'][page.lang] %}{{ site.data.i18n['no_result'][page.lang] }}{% else %}{{ site.data.i18n['no_result']['default'] }}{% endif %}",
     templateMiddleware: function(prop, value, template) {
-      console.log(prop);
-      console.log(value);
-      console.log(template);
       MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     }
-  })
+  });
 </script>

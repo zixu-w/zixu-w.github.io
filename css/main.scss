@@ -108,6 +108,7 @@ body {
 
     .sidebar-content {
       font-size: small;
+      margin-left: 0.5em;
     }
 
     .sidebar-section {
@@ -148,8 +149,6 @@ tt, code, kbd, samp {
 
 #results-container {
   list-style-type: none;
-  margin-left: 1em;
-  font-size: medium;
   padding: 0;
 
   li {
