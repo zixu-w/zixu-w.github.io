@@ -18,11 +18,14 @@ layout: default
 
 <section class="post-meta">
   <div class="post-date">
-    {% if page.lang == 'zh' %}
-      {{ page.date | date: "%Y年%-m月%-d日&nbsp;&nbsp;%H:%M" }}
-    {% else %}
-      {{ page.date | date: "%H:%M&nbsp;&nbsp;%B %-d, %Y" }}
-    {% endif %}
+    {% case page.lang %}
+      {% when 'zh' %}
+        {{ page.date | date: "%Y年%-m月%-d日&nbsp;&nbsp;%H:%M" }}
+      {% when 'en' %}
+        {{ page.date | date: "%H:%M&nbsp;&nbsp;%B %-d, %Y" }}
+      {% else %}
+        {{ page.date | date: "%H:%M&nbsp;&nbsp;%Y-%-m-%-d" }}
+    {% endcase %}
   </div>
   <div class="post-categories">
   {% if page.categories.size > 1 %}
