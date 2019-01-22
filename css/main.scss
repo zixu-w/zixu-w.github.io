@@ -124,6 +124,12 @@ tt, code, kbd, samp {
   font-family: Consolas, 'Courier New', Courier, monospace;
 }
 
+.highlight {
+  code {
+    border-radius: 5px !important;
+  }
+}
+
 .share {
   width: 100% !important;
 }
