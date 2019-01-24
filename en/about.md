@@ -4,6 +4,7 @@ title: About
 permalink: /en/about/
 lang: en
 no_back_top: true
+ref: about
 ---
 
 >*<sub>This site is dedicated to HW311, a computer lab in Haking Wong Building HKU, and

@@ -6,6 +6,7 @@ author: Zixu Wang
 categories: Misc
 cover:  "/assets/imgs/IMG_7381.jpg"
 lang: en
+ref: hello-world
 ---
 
 This site is dedicated to HW311, a computer lab in Haking Wong Building HKU, and

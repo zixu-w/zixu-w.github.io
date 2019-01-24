@@ -7,6 +7,7 @@ author: Zixu Wang
 categories: Jekyll
 tags: blog 博客 Jekyll LaTeX MathJax
 lang: zh
+ref: support-latex-in-jekyll-blog
 ---
 
 在[上一篇文章](/zh/jekyll/2019/01/21/blog-jekyll-github-pages/){:target='_blank'}里我们简单学习了使用Jekyll搭建博客的基础方法，那么这一篇以及接下来的几篇文章都会稍加深入，介绍一些扩充功能、给你的博客锦上添花的方法。这些进阶的介绍都会假设读者已经了解Jekyll的基本概念和使用，最好也已经动手试验甚至搭建出了自己的博客。如果有需要的话，可以随时返回参考[上一篇文章](/zh/jekyll/2019/01/21/blog-jekyll-github-pages/){:target='_blank'}及其参考资料。在这一篇短文里，我会简单介绍一下我是如何使用[MathJax](https://www.mathjax.org/){:target='_blank'}为这个博客提供$\LaTeX$支持的。
