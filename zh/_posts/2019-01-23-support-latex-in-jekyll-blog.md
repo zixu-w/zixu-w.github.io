@@ -88,9 +88,9 @@ MathJax.Hub.Config({
 6. [其他选项](https://docs.mathjax.org/en/latest/options/other/index.html){:target='_blank'}
 7. [第三方扩展选项](https://docs.mathjax.org/en/latest/options/ThirdParty.html){:target='_blank'}
 
-限于篇幅，我在这里只介绍比较常用、我使用到的一些配置选项，有兴趣的读者可以自行研究。
+限于篇幅，我在这里只介绍比较常用、我使用到的一些配置选项，其余选项有兴趣的读者可以自行研究。
 
-`skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']`：这是一个 `tex2jax` 预处理器的选项，可以使用这个选项列出我们希望MathJax忽略的HTML元素。相关的选项还有 `ignoreCLass` 和 `processClass`.
+`skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']`：这是一个 `tex2jax` 预处理器的选项，可以使用这个选项列出我们希望MathJax忽略的HTML元素。相关的选项还有 `ignoreClass` 和 `processClass`.
 
 `inlineMath: [['$','$'], ['\\(','\\)']]`：这也是一个 `tex2jax` 预处理器的选项。这个选项用于指定在行中插入公式的标识符，比如 `$some expression$` 和 `\(some expression\)`.
 
