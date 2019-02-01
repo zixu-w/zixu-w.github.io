@@ -1,3 +1,9 @@
+- ref: Study-notes
+  name:
+    default: 'Study notes'
+    en: 'Study notes'
+    zh: 学习笔记
+
 - ref: Misc
   name:
     default: Misc
