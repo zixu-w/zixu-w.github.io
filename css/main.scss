@@ -313,10 +313,10 @@ img.img-as-is {
     list-style-image: none;
     margin-left: 0;
     padding: 0;
-    margin: 0.3em 0;
+    margin: 0.3em 0 !important;
 
     ul {
-      margin: 0 0 0 2em;
+      margin: 0 0 0 2em !important;
     }
   }
 }
