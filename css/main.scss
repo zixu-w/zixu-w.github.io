@@ -20,6 +20,10 @@ article.post-content {
   a:not(.normal-color) {
     color: cadetblue;
   }
+
+  a:not(.normal-color):visited {
+    color: adjust-color(cadetblue, $lightness: -20%);
+  }
 }
 
 .footernote {
@@ -146,7 +150,7 @@ tt, code, kbd, samp {
   padding: 0;
 }
 
-.site-signature {  
+.site-signature {
   a:link {
     text-decoration: none;
   }
@@ -289,4 +293,41 @@ a.footnote:after {
 img.img-as-is {
   width: auto;
   height: auto;
+}
+
+.toc .toctitle {
+  text-align: center;
+}
+
+.toc {
+  display: table;
+  zoom: 1;
+  padding: 7px;
+  border: 1px solid adjust-color($action-color, $lightness: +50%);
+  background-color: adjust-color($action-color, $lightness: +56%);
+  font-size: 95%;
+
+  ul {
+    text-align: left;
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: 0;
+    padding: 0;
+    margin: 0.3em 0;
+
+    ul {
+      margin: 0 0 0 2em;
+    }
+  }
+}
+
+.tocnumber .toctext {
+  display: table-cell;
+  text-decoration: inherit;
+}
+
+.tocnumber {
+  padding-left: 0;
+  padding-right: 0.5em;
+  color: #222;
 }
