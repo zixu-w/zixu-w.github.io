@@ -7,8 +7,6 @@ categories: Study-notes Database
 tags: 学习笔记 数据库 database 事务 transaction consistency 两阶段锁 two-phase locking 2PL
 lang: zh
 ref: transaction-consistency-2PL
-disqus_disabled: true
-ga_disabled: true
 ---
 
 刚刚勉强活过了这个quarter的最后一个星期，消耗了半打红牛，不眠不休地赶完了三个homework、两个大project、两篇五页的report、和一个final，这个周末终于闲下来一点，只剩一个final和三篇seminar report了，嗯 :smiley:。抽空继续写一写关于transaction management的话题吧。上一篇文章获得的阅读和关注都少得可怜。一方面可能是现在数据库原理这个方向的热度陷入了低谷；另一方面是我篇幅没有控制好，一下包含了过多的信息。虽然说这个博客的本意是让我自己巩固和记录知识，但我以后还是尽量把篇幅控制的短一点吧，我写起来也不累，文章粒度细化日后查阅起来也方便。
