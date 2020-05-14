@@ -237,7 +237,7 @@ currently viewing is modified from a great theme
 [Centrarium](https://github.com/bencentra/centrarium){:target='_blank'}. Since
 I have made many modifications and added some other functionalities, I also
 published my theme on GitHub:
-[Jekyll-Theme-HW311](https://github.com/LaytonW/jekyll-theme-hw311){:target='_blank'}.
+[Jekyll-Theme-HW311](https://github.com/zixu-w/jekyll-theme-hw311){:target='_blank'}.
 If you like this theme or want to use it, you are welcomed to fork and star it.
 The main features include (including original features from Centrarium):
 
@@ -286,7 +286,7 @@ Please refer to Jekyll's
 [official docs](https://jekyllrb.com/docs/){:target='_blank'}[^5] for usage of
 Jekyll's features. If you have specific questions about this theme, please leave
 comments [below](#disqus_thread) or in the
-[GitHub repo](https://github.com/LaytonW/jekyll-theme-hw311){:target='_blank'}.
+[GitHub repo](https://github.com/zixu-w/jekyll-theme-hw311){:target='_blank'}.
 
 ## Use a custom domain name
 
