@@ -11,7 +11,7 @@ ref: about
 
 <hr>
 
-香港大学BEng(CompSci)毕业生，UCI MSCS在读。
+香港大学BEng(CompSci)毕业，UCI MSCS毕业，湾区搬砖中。
 
 受朋友启发及鼓励，斗胆开辟一个写写东西、记录心得的地方。可能有随笔，可能有浅薄的学习笔记，也可能有日常无聊吐槽。
 

@@ -16,7 +16,8 @@ them has always been enlightening me.</sub>*
 
 <hr>
 
-Graduated from HKU (BEng CompSci). Now pursuing an MSCS degree at UCI.
+Graduated from HKU (BEng CompSci) and UCI (MSCS). Working as an SDE in the Bay
+Area.
 
 Inspired and encouraged by my friends, I hereby boldly open up a space to write
 and record.
