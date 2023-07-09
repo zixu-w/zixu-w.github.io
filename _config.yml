@@ -35,9 +35,6 @@ inter_post_navigation: true
 # Disqus comments
 disqus_shortname: hw311
 
-# Google analytics
-ga_tracking_id: "UA-61139519-1"
-
 # Social icons and sharing options
 #
 # Social settings are used in two places:
