@@ -33,10 +33,10 @@ should be /tɛx/ or /ˈtɛk/. Similarly, $\LaTeX$ should be pronounced as
 /ˈlɑːtɛx(k)/ or /ˈleɪtɛx(k)/.[^1]
 
 As a ~~serious academic~~ blog, we sometimes want to include mathematical
-equations and formulas in posts. However, the Markdown or HTML language we use
+equations and formulae in posts. However, the Markdown or HTML language we use
 does not directly support formula editing. One simple solution is to use
-external tools to generate images of formulas and insert those images to our
-posts. This method does not allow us to easily edit the formulas. What if I find
+external tools to generate images of formulae and insert those images into our
+posts. This method does not allow us to easily edit the formulae. What if I find
 something wrong after inserting all the images? The excessive use of images also
 burdens our website and page loading. We want to render equations locally using
 Jekyll, for example writing $\LaTeX$ codes directly in Markdown. The answer to
@@ -356,7 +356,7 @@ $$
 
 ## Afterword
 
-Though I adopted MathJax to render formulas, it is only one of many similar
+Though I adopted MathJax to render formulae, it is only one of many similar
 JavaScript math rendering engines. For example,
 [KaTeX](https://katex.org/){:target='_blank'} is faster than MathJax, but
 limited in command sets and rendering effect. You may find a
